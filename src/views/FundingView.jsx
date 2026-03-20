@@ -97,6 +97,50 @@ export default function FundingView() {
            <div className="warn-box">Testează site-ul ÎNTOTDEAUNA pe propriul telefon. Dacă Figma depășește termenul limită, folosește Mockup-uri simple cu pixul. Tot ce construiești trebuie să aibă focus pe fabricația in-house (avantajul tău major de la TCM).</div>
         </div>
       </div>
+
+      {/* Prototip functional Elaborated - No horizontal scroll ASCII */}
+      <h3 style={{ fontSize: '24px', marginBottom: '24px', marginTop: '64px', color: 'var(--teal)' }}>Prototip Funcțional (Arhitectură Hardware)</h3>
+      <div className="grid-stack grid-2">
+        <div className="card" style={{ borderLeft: '4px solid var(--teal)' }}>
+          <h4 style={{ marginBottom: '16px', fontSize: '18px', color: 'var(--cream)' }}>Sistem IoT de Blocare (Open-Source)</h4>
+          <p style={{ fontSize: '14px', color: 'var(--muted)', marginBottom: '16px', lineHeight: '1.6' }}>
+            Hub-ul este dotat cu un stâlp IoT compact gestionat de o placă de dezvoltare <strong>ESP32</strong> (care acționează ca server HTTP local).
+            Când utilizatorul scanează codul QR, telefonul trimite o cerere HTTP de validare. 
+            Microcontrollerul acționează mai apoi un motor <strong>stepper (NEMA 17)</strong> care comandă fizic zăvorul mecanic ce reține bicicleta.
+            <br/><br/>
+            Timpul total de latență este <strong>sub 2 secunde</strong>, garantând un flux de preluare instantaneu fără software greoi.
+          </p>
+          <div style={{ padding: '16px', background: 'rgba(255,255,255,0.02)', borderRadius: '8px', border: '1px solid var(--border)' }}>
+            <strong style={{ display: 'block', color: 'var(--amber)', marginBottom: '12px', fontSize: '14px', letterSpacing: '0.5px' }}>⚡ FLUX DE DEBLOCARE (SCAN QR)</strong>
+            <ul style={{ fontSize: '13px', color: 'var(--cream)', margin: 0, paddingLeft: '20px', lineHeight: 1.8 }}>
+              <li><strong>Pas 1:</strong> Utilizatorul scanează QR unic</li>
+              <li><strong>Pas 2:</strong> HTTP GET de la telefon la ESP32</li>
+              <li><strong>Pas 3:</strong> ESP32 verifică token-ul intern</li>
+              <li><strong>Pas 4:</strong> Stepper-ul eliberează zăvorul mecanic</li>
+              <li><strong>Pas 5:</strong> LED status devine Albastru (Liber)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="card" style={{ borderLeft: '4px solid var(--yellow)' }}>
+          <h4 style={{ marginBottom: '16px', fontSize: '18px', color: 'var(--cream)' }}>Autonomie Energetică 100% (Off-Grid)</h4>
+          <p style={{ fontSize: '14px', color: 'var(--muted)', marginBottom: '16px', lineHeight: '1.6' }}>
+            Stațiile noastre nu necesită excavații sau racordare la curentul publicistic. 
+            Capacul superior al fiecărui stâlp modular este dotat cu un mini <strong>Panou Solar de 1W/5V</strong> perfect vizibil și estetic.
+            <br/><br/>
+            Acesta încarcă continuu o baterie <strong>LiPo/Li-Ion</strong> integrată, capabilă să asigure energia necesară plăcii ESP32 și motorului, generând o independență operațională totală a hub-urilor indiferent de locul amplasării.
+          </p>
+          <div style={{ padding: '16px', background: 'rgba(4,88,140,0.15)', borderRadius: '8px', border: '1px solid var(--border)' }}>
+            <strong style={{ display: 'block', color: 'var(--teal)', marginBottom: '12px', fontSize: '14px', letterSpacing: '0.5px' }}>🔧 ARHITECTURA FIZICĂ (TOP-DOWN)</strong>
+            <ul style={{ fontSize: '13px', color: '#00ffcc', margin: 0, paddingLeft: '20px', lineHeight: 1.8, listStyleType: "square" }}>
+              <li><strong>TOP:</strong> Panou Solar Monocristalin 1W</li>
+              <li><strong>Nivel Mediu:</strong> Scan QR &amp; LED RGB la 160cm</li>
+              <li><strong>Interior Miez:</strong> ESP32 + Baterii LiPo izolate</li>
+              <li><strong>Bază Activă:</strong> Brațe fizice acționate de NEMA 17</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

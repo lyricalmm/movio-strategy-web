@@ -170,49 +170,6 @@ export default function PlaybookView() {
         </div>
       </div>
 
-      {/* Prototip functional */}
-      <h3 style={{ fontSize: '20px', marginBottom: '16px', marginTop: '48px' }}>6. Prototip Funcțional (Arhitectură Hardware)</h3>
-      <div className="grid-stack grid-2">
-        <div className="card" style={{ borderLeft: '3px solid var(--teal)' }}>
-          <h4 style={{ marginBottom: '12px', fontSize: '16px' }}>Sistem IoT de Blocare</h4>
-          <p style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '12px' }}>
-            Un stâlp IoT compact, bazat pe o placă ESP32 (care acționează ca un server HTTP local). Motorul stepper (NEMA 17) comandă fizic zăvorul mecanic ce reține bicicleta, în mai puțin de 2 secunde de la validarea QR.
-          </p>
-          <div style={{ padding: '16px', background: 'rgba(255,255,255,0.02)', borderRadius: '8px', border: '1px solid var(--border)' }}>
-            <strong style={{ display: 'block', color: 'var(--amber)', marginBottom: '12px', fontSize: '14px', letterSpacing: '0.5px' }}>⚡ FLUX DE DEBLOCARE SCAN QR</strong>
-            <pre style={{ fontSize: '13px', color: 'var(--cream)', fontFamily: 'monospace', lineHeight: 1.6 }}>
-1. Utilizator scanează QR cu telefonul
-2. Browser trimite GET request la ESP32
-3. ESP32 verifică token-ul de securitate
-4. Stepper ridică zăvorul (deblocare)
-5. LED status trece pe ALBASTRU (Liber)
-            </pre>
-          </div>
-        </div>
-
-        <div className="card" style={{ borderLeft: '3px solid var(--yellow)' }}>
-          <h4 style={{ marginBottom: '12px', fontSize: '16px' }}>Autonomie Energetică 100%</h4>
-          <p style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '12px' }}>
-            Capacul hub-ului este dotat cu un panou solar de 1W/5V care încarcă o baterie internă LiPo, asigurând continuitate off-grid non-stop. Nu este nevoie de racordare la curent public sau săpături costisitoare.
-          </p>
-          <div style={{ padding: '16px', background: 'rgba(0,0,0,0.4)', borderRadius: '8px', overflowX: 'auto', border: '1px solid var(--border)' }}>
-            <pre style={{ fontSize: '12px', color: '#00ffcc', fontFamily: 'monospace', lineHeight: 1.5, fontWeight: 'bold' }}>
-  [🔲 PANOU SOLAR]
-         │
-   ┌─────┴─────┐
-   │ [QR CODE] │ ← H=160cm
-   │ [LED RGB] │  
-   └─────┬─────┘
-         │
-      STÂLP (oțel)
-         │
-   ┌─────┴─────┐
-   │  BRAȚE    │ ← Blocare bcicletă
-   └───────────┘
-            </pre>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
