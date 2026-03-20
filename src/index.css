@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap');
+
+:root {
+  --teal: #00B4B4;
+  --yellow: #F4A827;
+  --bg: #0D1117;
+  --surface: #161b22;
+  --text: #F4F1EC;
+  --muted: #7A8A9A;
+  --border: rgba(255,255,255,0.08);
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.2; }
+h1 { font-weight: 800; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -1px; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: 1.5rem; }
+
+a { text-decoration: none; color: inherit; }
+
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: clamp(24px, 5vw, 64px);
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  .layout-container { flex-direction: column; }
+  .sidebar { width: 100%; position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+  .main-content { margin-left: 0; padding: 24px; }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.text-teal { color: var(--teal); }
+.text-yellow { color: var(--yellow); }
+
+.grid-stack { display: grid; gap: 24px; }
+@media(min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+/* --- GHID ECHIPA COMPONENTS --- */
+
+.task-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--yellow);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+}
+
+.badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; display: inline-block; white-space: nowrap; }
+.badge.urgent  { background: rgba(218,54,51,0.15);   color: #DA3633; border: 1px solid rgba(218,54,51,0.3); }
+.badge.active  { background: rgba(0,180,180,0.12);   color: #00B4B4; border: 1px solid rgba(0,180,180,0.25); }
+.badge.done    { background: rgba(46,160,67,0.12);   color: #2EA043; border: 1px solid rgba(46,160,67,0.25); }
+.badge.waiting { background: rgba(244,168,39,0.12);  color: #F4A827; border: 1px solid rgba(244,168,39,0.25); }
+
+.tip-box {
+  background: rgba(0,180,180,0.06);
+  border: 1px solid rgba(0,180,180,0.2);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: var(--text);
+}
+.tip-box::before { content: '💡 '; }
+
+.warn-box {
+  background: rgba(244,168,39,0.06);
+  border: 1px solid rgba(244,168,39,0.2);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.warn-box::before { content: '⚠️ '; }
+
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 8px;
+}
