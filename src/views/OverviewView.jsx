@@ -3,12 +3,12 @@ import { Target, Flag, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export default function OverviewView() {
   const milestones = [
-    { data: "Astăzi — Martie 2026", task: "Lansare Dashboard Operativ & Machete Hub", done: true },
-    { data: "Sf. Martie 2026", task: "100 Formulări Validare Piață & Primele Pitch-uri", done: false },
-    { data: "17 Aprilie 2026", task: "DEADLINE: Predare Plan Afaceri DreamShaper", done: false, urgent: true },
+    { data: "23 Ianuarie 2026", task: "Deadline Înregistrare Echipe (FINALIZAT)", done: true },
+    { data: "17 Aprilie 2026", task: "DEADLINE: Predare Plan Afaceri DreamShaper & 100+ Validări", done: false, urgent: true },
+    { data: "Aprilie 2026", task: "Calificare Regională/Universitară (De verificat)", done: false },
     { data: "21 Mai 2026", task: "Virtual Expo Internațional GEN-E Europe (Online)", done: false },
-    { data: "27 Mai 2026", task: "Finala Națională BizzFactory (București)", done: false, urgent: true },
-    { data: "Vara 2026", task: "Producție 4 Hub-uri în Lab TCM (UTCN) & Lansare Pilot", done: false }
+    { data: "27 Mai 2026", task: "Finala Națională BizzFactory (București + Stand Fizic)", done: false, urgent: true },
+    { data: "Iulie 2026", task: "Finala Europeană GEN-E (Riga, Letonia)", done: false }
   ];
 
   return (

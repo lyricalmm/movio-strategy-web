@@ -1,4 +1,27 @@
 import React from 'react';
+import { MapContainer, TileLayer, Circle, Tooltip } from 'react-leaflet';
+
+const stations = [
+  { id: 1,  name: "Piața Unirii",              lat: 46.7693, lng: 23.5899, capacity: 25, type: "hub",      zone: "central" },
+  { id: 2,  name: "UBB Centrală",              lat: 46.7688, lng: 23.5891, capacity: 20, type: "hub",      zone: "university" },
+  { id: 3,  name: "USAMV — Calea Mănăștur",   lat: 46.7559, lng: 23.5512, capacity: 20, type: "hub",      zone: "residential" },
+  { id: 4,  name: "Gara Cluj-Napoca",          lat: 46.7766, lng: 23.5964, capacity: 20, type: "hub",      zone: "transport" },
+  { id: 6,  name: "UTCN — Facultatea Calc.",  lat: 46.7714, lng: 23.6078, capacity: 15, type: "standard", zone: "university" },
+  { id: 10, name: "UMF — Facultatea Med.",    lat: 46.7681, lng: 23.5836, capacity: 12, type: "standard", zone: "university" },
+  { id: 16, name: "Cămine Mărăști (bloc A/B)", lat: 46.7740, lng: 23.6100, capacity: 10, type: "hub", zone: "residential", nota: "NOU — propus de echipă. ~3.000 studenți. Traseu natural spre centru." },
+  { id: 17, name: "Complexul de Natație (Mărăști)", lat: 46.7720, lng: 23.6090, capacity: 6, type: "micro", zone: "sport", nota: "NOU — propus de echipă. Locație sport = brand funcțional." },
+  { id: 18, name: "Fac. Matematică (Kogălniceanu)", lat: 46.7701, lng: 23.5878, capacity: 10, type: "hub", zone: "university", nota: "NOU — propus de echipă. Stradă pietonală = vizibilitate maximă." },
+  { id: 19, name: "Facultatea de Economie (FSEGA)", lat: 46.7695, lng: 23.5960, capacity: 10, type: "hub", zone: "university", nota: "NOU — propus de echipă. 4.000+ studenți. Lângă centru." },
+  { id: 5,  name: "Parcul Central",            lat: 46.7700, lng: 23.5940, capacity: 15, type: "standard", zone: "central" },
+  { id: 7,  name: "Piața Mărăști",            lat: 46.7784, lng: 23.6051, capacity: 12, type: "standard", zone: "residential" },
+  { id: 8,  name: "Iulius Mall",              lat: 46.7510, lng: 23.5902, capacity: 15, type: "standard", zone: "commercial" },
+  { id: 9,  name: "Spitalul Județean",        lat: 46.7651, lng: 23.5743, capacity: 10, type: "standard", zone: "central" },
+  { id: 11, name: "Piața Avram Iancu",        lat: 46.7697, lng: 23.5945, capacity: 10, type: "standard", zone: "central" },
+  { id: 12, name: "Zorilor — Observatorului", lat: 46.7602, lng: 23.5775, capacity: 8,  type: "micro",    zone: "residential" },
+  { id: 13, name: "Gheorgheni — Hermes",   lat: 46.7503, lng: 23.6031, capacity: 8,  type: "micro",    zone: "residential" },
+  { id: 14, name: "Mănăștur — P. Florilor",  lat: 46.7573, lng: 23.5566, capacity: 10, type: "micro",    zone: "residential" },
+  { id: 15, name: "Centrul Civic",            lat: 46.7727, lng: 23.5883, capacity: 15, type: "standard", zone: "central" }
+];
 
 export default function PlaybookView() {
   return (
@@ -98,6 +121,42 @@ export default function PlaybookView() {
         </table>
       </div>
 
+      <div className="card" style={{ marginBottom: '48px', padding: 0, overflow: 'hidden', height: '400px' }}>
+        <MapContainer center={[46.764, 23.585]} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%', zIndex: 0 }}>
+          <TileLayer
+            attribution='&copy; <a href="https://carto.com/">Carto</a>'
+            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            maxZoom={19}
+          />
+          {stations.map(s => {
+            const isNew = s.id >= 16 && s.id <= 19;
+            const color = isNew ? '#F4A827' : '#0FC2C0';
+            const opac = isNew ? 0.85 : 0.8;
+            const fillOpac = isNew ? 0.6 : 0.25;
+            return (
+              <Circle
+                key={s.id}
+                center={[s.lat, s.lng]}
+                radius={350}
+                pathOptions={{
+                  color: color,
+                  fillColor: color,
+                  weight: 2,
+                  opacity: opac,
+                  fillOpacity: fillOpac
+                }}
+              >
+                <Tooltip>
+                  <strong>{s.name}</strong><br/>
+                  Capacitate: {s.capacity} biciclete
+                  {isNew && <><br/><i style={{color: '#F4A827'}}>★ NOU: {s.nota}</i></>}
+                </Tooltip>
+              </Circle>
+            );
+          })}
+        </MapContainer>
+      </div>
+
       {/* Reguli Pitch */}
       <h3 style={{ fontSize: '20px', marginBottom: '16px' }}>5. Glosar B2B & Reguli De Aur la Pitch</h3>
       <div className="grid-stack grid-2">
@@ -108,6 +167,50 @@ export default function PlaybookView() {
         <div className="tip-box" style={{ margin: 0 }}>
           <strong style={{ display: 'block', marginBottom: '8px' }}>Fără E-mail-uri "Targetate Orb"</strong>
           Sute de ONG-uri dau mail la `office@companie.ro` și mor în Spam-ul secretavei. Căutăm Directorul CSR / Employer Branding Lead exact pe orașul Cluj, exclusiv prin LinkedIn.
+        </div>
+      </div>
+
+      {/* Prototip functional */}
+      <h3 style={{ fontSize: '20px', marginBottom: '16px', marginTop: '48px' }}>6. Prototip Funcțional (Arhitectură Hardware)</h3>
+      <div className="grid-stack grid-2">
+        <div className="card" style={{ borderLeft: '3px solid var(--teal)' }}>
+          <h4 style={{ marginBottom: '12px', fontSize: '16px' }}>Sistem IoT de Blocare</h4>
+          <p style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '12px' }}>
+            Un stâlp IoT compact, bazat pe o placă ESP32 (care acționează ca un server HTTP local). Motorul stepper (NEMA 17) comandă fizic zăvorul mecanic ce reține bicicleta, în mai puțin de 2 secunde de la validarea QR.
+          </p>
+          <div style={{ padding: '12px', background: 'rgba(255,255,255,0.02)', borderRadius: '4px', border: '1px solid var(--border)' }}>
+            <strong style={{ display: 'block', color: 'var(--amber)', marginBottom: '8px', fontSize: '12px' }}>FLUX DE DEBLOCARE SCAN QR</strong>
+            <pre style={{ fontSize: '11px', color: 'var(--muted)', fontFamily: 'monospace' }}>
+1. Utilizator scanează QR cu telefonul
+2. Browser trimite GET request la ESP32
+3. ESP32 verifică token-ul de securitate
+4. Stepper ridică zăvorul (deblocare)
+5. LED status trece pe ALBASTRU (Liber)
+            </pre>
+          </div>
+        </div>
+
+        <div className="card" style={{ borderLeft: '3px solid var(--yellow)' }}>
+          <h4 style={{ marginBottom: '12px', fontSize: '16px' }}>Autonomie Energetică 100%</h4>
+          <p style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '12px' }}>
+            Capacul hub-ului este dotat cu un panou solar de 1W/5V care încarcă o baterie internă LiPo, asigurând continuitate off-grid non-stop. Nu este nevoie de racordare la curent public sau săpături costisitoare.
+          </p>
+          <div style={{ padding: '8px 12px', background: 'rgba(4,88,140,0.1)', borderRadius: '4px', overflowX: 'auto' }}>
+            <pre style={{ fontSize: '10px', color: 'var(--cream)', fontFamily: 'monospace', lineHeight: 1.3 }}>
+  [🔲 PANOU SOLAR]
+         │
+   ┌─────┴─────┐
+   │ [QR CODE] │ ← H=160cm
+   │ [LED RGB] │  
+   └─────┬─────┘
+         │
+      STÂLP (oțel)
+         │
+   ┌─────┴─────┐
+   │  BRAȚE    │ ← Blocare bcicletă
+   └───────────┘
+            </pre>
+          </div>
         </div>
       </div>
     </div>
