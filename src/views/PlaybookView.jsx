@@ -121,7 +121,7 @@ export default function PlaybookView() {
         </table>
       </div>
 
-      <div className="card" style={{ marginBottom: '48px', padding: 0, overflow: 'hidden', height: '400px' }}>
+      <div className="card" style={{ marginBottom: '64px', padding: 0, overflow: 'hidden', height: '600px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
         <MapContainer center={[46.764, 23.585]} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%', zIndex: 0 }}>
           <TileLayer
             attribution='&copy; <a href="https://carto.com/">Carto</a>'
@@ -178,9 +178,9 @@ export default function PlaybookView() {
           <p style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '12px' }}>
             Un stâlp IoT compact, bazat pe o placă ESP32 (care acționează ca un server HTTP local). Motorul stepper (NEMA 17) comandă fizic zăvorul mecanic ce reține bicicleta, în mai puțin de 2 secunde de la validarea QR.
           </p>
-          <div style={{ padding: '12px', background: 'rgba(255,255,255,0.02)', borderRadius: '4px', border: '1px solid var(--border)' }}>
-            <strong style={{ display: 'block', color: 'var(--amber)', marginBottom: '8px', fontSize: '12px' }}>FLUX DE DEBLOCARE SCAN QR</strong>
-            <pre style={{ fontSize: '11px', color: 'var(--muted)', fontFamily: 'monospace' }}>
+          <div style={{ padding: '16px', background: 'rgba(255,255,255,0.02)', borderRadius: '8px', border: '1px solid var(--border)' }}>
+            <strong style={{ display: 'block', color: 'var(--amber)', marginBottom: '12px', fontSize: '14px', letterSpacing: '0.5px' }}>⚡ FLUX DE DEBLOCARE SCAN QR</strong>
+            <pre style={{ fontSize: '13px', color: 'var(--cream)', fontFamily: 'monospace', lineHeight: 1.6 }}>
 1. Utilizator scanează QR cu telefonul
 2. Browser trimite GET request la ESP32
 3. ESP32 verifică token-ul de securitate
@@ -195,8 +195,8 @@ export default function PlaybookView() {
           <p style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '12px' }}>
             Capacul hub-ului este dotat cu un panou solar de 1W/5V care încarcă o baterie internă LiPo, asigurând continuitate off-grid non-stop. Nu este nevoie de racordare la curent public sau săpături costisitoare.
           </p>
-          <div style={{ padding: '8px 12px', background: 'rgba(4,88,140,0.1)', borderRadius: '4px', overflowX: 'auto' }}>
-            <pre style={{ fontSize: '10px', color: 'var(--cream)', fontFamily: 'monospace', lineHeight: 1.3 }}>
+          <div style={{ padding: '16px', background: 'rgba(0,0,0,0.4)', borderRadius: '8px', overflowX: 'auto', border: '1px solid var(--border)' }}>
+            <pre style={{ fontSize: '12px', color: '#00ffcc', fontFamily: 'monospace', lineHeight: 1.5, fontWeight: 'bold' }}>
   [🔲 PANOU SOLAR]
          │
    ┌─────┴─────┐
