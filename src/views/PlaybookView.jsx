@@ -2,12 +2,12 @@ import React from 'react';
 import { MapContainer, TileLayer, Circle, Tooltip } from 'react-leaflet';
 
 const stations = [
-  { id: 1, name: "Complex camin marasti 1F", lat: 46.7740, lng: 23.6100, capacity: 20, type: "hub", zone: "residential", nota: "NOU — propus de echipă. ~3.000 studenți rezidenți." },
-  { id: 2, name: "Facultatea IIRMP de la UTCN, Blvd. Muncii", lat: 46.7820, lng: 23.6400, capacity: 15, type: "hub", zone: "university", nota: "Trafic ingineresc intens (Ateliere TCM)." },
-  { id: 3, name: "Complexul de natatie UTCN", lat: 46.7720, lng: 23.6090, capacity: 10, type: "micro", zone: "sport", nota: "NOU — propus de echipă. Locație sport = brand fit." },
-  { id: 4, name: "UTCN Hub de pe Baritiu", lat: 46.7725, lng: 23.5855, capacity: 25, type: "hub", zone: "central", nota: "Zonă Centrală de debarcare. Trafic pietonal imens." },
-  { id: 5, name: "Campus Observator", lat: 46.7600, lng: 23.5850, capacity: 20, type: "hub", zone: "residential", nota: "Punctul de Start Obligatoriu (Mii de studenți)." },
-  { id: 6, name: "Sediu OSUT", lat: 46.7605, lng: 23.5855, capacity: 10, type: "standard", zone: "university", nota: "Sediu partener implementare." }
+  { id: 1, name: "Complex camin marasti 1F", lat: 46.7830, lng: 23.6227, capacity: 20, type: "hub", zone: "residential", nota: "NOU — propus de echipă. ~3.000 studenți rezidenți." },
+  { id: 2, name: "Facultatea IIRMP de la UTCN, Blvd. Muncii", lat: 46.7959, lng: 23.6562, capacity: 15, type: "hub", zone: "university", nota: "Trafic ingineresc intens (Ateliere TCM)." },
+  { id: 3, name: "Complexul de natatie UTCN", lat: 46.7684, lng: 23.5714, capacity: 10, type: "micro", zone: "sport", nota: "NOU — propus de echipă. Locație sport = brand fit." },
+  { id: 4, name: "UTCN Hub de pe Baritiu", lat: 46.7738, lng: 23.5905, capacity: 25, type: "hub", zone: "central", nota: "Zonă Centrală de debarcare. Trafic pietonal imens." },
+  { id: 5, name: "Campus Observator", lat: 46.7570, lng: 23.5850, capacity: 20, type: "hub", zone: "residential", nota: "Punctul de Start Obligatoriu (Mii de studenți)." },
+  { id: 6, name: "Sediu OSUT", lat: 46.7565, lng: 23.5855, capacity: 10, type: "standard", zone: "university", nota: "Sediu partener implementare." }
 ];
 
 export default function PlaybookView() {
