@@ -2,25 +2,12 @@ import React from 'react';
 import { MapContainer, TileLayer, Circle, Tooltip } from 'react-leaflet';
 
 const stations = [
-  { id: 1,  name: "Piața Unirii",              lat: 46.7693, lng: 23.5899, capacity: 25, type: "hub",      zone: "central" },
-  { id: 2,  name: "UBB Centrală",              lat: 46.7688, lng: 23.5891, capacity: 20, type: "hub",      zone: "university" },
-  { id: 3,  name: "USAMV — Calea Mănăștur",   lat: 46.7559, lng: 23.5512, capacity: 20, type: "hub",      zone: "residential" },
-  { id: 4,  name: "Gara Cluj-Napoca",          lat: 46.7766, lng: 23.5964, capacity: 20, type: "hub",      zone: "transport" },
-  { id: 6,  name: "UTCN — Facultatea Calc.",  lat: 46.7714, lng: 23.6078, capacity: 15, type: "standard", zone: "university" },
-  { id: 10, name: "UMF — Facultatea Med.",    lat: 46.7681, lng: 23.5836, capacity: 12, type: "standard", zone: "university" },
-  { id: 16, name: "Cămine Mărăști (bloc A/B)", lat: 46.7740, lng: 23.6100, capacity: 10, type: "hub", zone: "residential", nota: "NOU — propus de echipă. ~3.000 studenți. Traseu natural spre centru." },
-  { id: 17, name: "Complexul de Natație (Mărăști)", lat: 46.7720, lng: 23.6090, capacity: 6, type: "micro", zone: "sport", nota: "NOU — propus de echipă. Locație sport = brand funcțional." },
-  { id: 18, name: "Fac. Matematică (Kogălniceanu)", lat: 46.7701, lng: 23.5878, capacity: 10, type: "hub", zone: "university", nota: "NOU — propus de echipă. Stradă pietonală = vizibilitate maximă." },
-  { id: 19, name: "Facultatea de Economie (FSEGA)", lat: 46.7695, lng: 23.5960, capacity: 10, type: "hub", zone: "university", nota: "NOU — propus de echipă. 4.000+ studenți. Lângă centru." },
-  { id: 5,  name: "Parcul Central",            lat: 46.7700, lng: 23.5940, capacity: 15, type: "standard", zone: "central" },
-  { id: 7,  name: "Piața Mărăști",            lat: 46.7784, lng: 23.6051, capacity: 12, type: "standard", zone: "residential" },
-  { id: 8,  name: "Iulius Mall",              lat: 46.7510, lng: 23.5902, capacity: 15, type: "standard", zone: "commercial" },
-  { id: 9,  name: "Spitalul Județean",        lat: 46.7651, lng: 23.5743, capacity: 10, type: "standard", zone: "central" },
-  { id: 11, name: "Piața Avram Iancu",        lat: 46.7697, lng: 23.5945, capacity: 10, type: "standard", zone: "central" },
-  { id: 12, name: "Zorilor — Observatorului", lat: 46.7602, lng: 23.5775, capacity: 8,  type: "micro",    zone: "residential" },
-  { id: 13, name: "Gheorgheni — Hermes",   lat: 46.7503, lng: 23.6031, capacity: 8,  type: "micro",    zone: "residential" },
-  { id: 14, name: "Mănăștur — P. Florilor",  lat: 46.7573, lng: 23.5566, capacity: 10, type: "micro",    zone: "residential" },
-  { id: 15, name: "Centrul Civic",            lat: 46.7727, lng: 23.5883, capacity: 15, type: "standard", zone: "central" }
+  { id: 1, name: "Complex camin marasti 1F", lat: 46.7740, lng: 23.6100, capacity: 20, type: "hub", zone: "residential", nota: "NOU — propus de echipă. ~3.000 studenți rezidenți." },
+  { id: 2, name: "Facultatea IIRMP de la UTCN, Blvd. Muncii", lat: 46.7820, lng: 23.6400, capacity: 15, type: "hub", zone: "university", nota: "Trafic ingineresc intens (Ateliere TCM)." },
+  { id: 3, name: "Complexul de natatie UTCN", lat: 46.7720, lng: 23.6090, capacity: 10, type: "micro", zone: "sport", nota: "NOU — propus de echipă. Locație sport = brand fit." },
+  { id: 4, name: "UTCN Hub de pe Baritiu", lat: 46.7725, lng: 23.5855, capacity: 25, type: "hub", zone: "central", nota: "Zonă Centrală de debarcare. Trafic pietonal imens." },
+  { id: 5, name: "Campus Observator", lat: 46.7600, lng: 23.5850, capacity: 20, type: "hub", zone: "residential", nota: "Punctul de Start Obligatoriu (Mii de studenți)." },
+  { id: 6, name: "Sediu OSUT", lat: 46.7605, lng: 23.5855, capacity: 10, type: "standard", zone: "university", nota: "Sediu partener implementare." }
 ];
 
 export default function PlaybookView() {
@@ -72,16 +59,17 @@ export default function PlaybookView() {
         </div>
 
         <div>
-          <h3 style={{ fontSize: '20px', marginBottom: '16px' }}>3. Modulul de Bază: "2 Biciclete"</h3>
-          <div className="card" style={{ borderLeft: '3px solid var(--teal)' }}>
-            <p style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '16px' }}>
-              Eșecul "Cluj Bike" e fundația de ciment de 15m. Hub-ul Movio este modular, ocupă aproape deloc spațiu și ține **exact 2 biciclete**. Din acest modul singular construim rețeaua.
-            </p>
-            <ul style={{ paddingLeft: '20px', fontSize: '13px', color: 'var(--muted)' }}>
-              <li style={{ marginBottom: '8px' }}><b>Scalare organică:</b> Dacă la Mărăști e cerere uriașă, pur și simplu deșurubăm pe trotuar încă 3 module (6 biciclete).</li>
-              <li><b>Re-alocare rapidă:</b> Dacă un hub e nefolosit iarna pe Str. Observatorului, desfacem cele 4 șuruburi și îl mutăm la Sediul Central în 2 ore cu dubița. Zero șantiere irosite.</li>
-            </ul>
-          </div>
+           <h3 style={{ fontSize: '20px', marginBottom: '16px' }}>3. Exclusivitate UTCN ("Pilotul Închis")</h3>
+           <div className="card" style={{ borderLeft: '3px solid var(--teal)' }}>
+             <p style={{ fontSize: '13px', color: 'var(--muted)', marginBottom: '16px' }}>
+               <strong style={{color: 'var(--teal)'}}>ATENȚIE: Sunt doar locații UTCN, iar parteneriatul în faza pilot se rezumă EXCLUSIV la UTCN!</strong> 
+               Nu ne propunem să cucerim tot orașul în primul an. O rețea prea largă diluează densitatea bicicletelor. 
+             </p>
+             <ul style={{ paddingLeft: '20px', fontSize: '13px', color: 'var(--muted)' }}>
+               <li style={{ marginBottom: '8px' }}><b>Densitate uriașă:</b> Acoperim un traseu clar Observator - Centru - Mărăști/Muncii.</li>
+               <li><b>Control Operațional:</b> Colaborarea cu OSUT ne oferă feedback constant.</li>
+             </ul>
+           </div>
         </div>
       </div>
 
@@ -98,8 +86,8 @@ export default function PlaybookView() {
           </thead>
           <tbody>
             <tr style={{ borderBottom: '1px solid var(--border)' }}>
-              <td style={{ padding: '16px' }}><b>Complex Cămine Observator</b></td>
-              <td style={{ padding: '16px', color: 'var(--muted)' }}>Punctul de Start Obligatoriu (Mii de studenți). Cerere maximă dimineața - necesită minim 3 module (6 biciclete).</td>
+              <td style={{ padding: '16px' }}><b>Campus Observator & Sediu OSUT</b></td>
+              <td style={{ padding: '16px', color: 'var(--muted)' }}>Punctul de Start Obligatoriu (Mii de studenți). Cerere maximă dimineața - necesită minim 3 module.</td>
               <td style={{ padding: '16px', color: 'var(--muted)' }}>Firme de FMCG/Telco (Kaufland, Orange)</td>
             </tr>
             <tr style={{ borderBottom: '1px solid var(--border)' }}>
@@ -108,36 +96,35 @@ export default function PlaybookView() {
               <td style={{ padding: '16px', color: 'var(--muted)' }}>Firme IT & Hub-uri Tech (NTT Data)</td>
             </tr>
             <tr style={{ borderBottom: '1px solid var(--border)' }}>
-              <td style={{ padding: '16px' }}><b>Campus B-dul Muncii</b></td>
-              <td style={{ padding: '16px', color: 'var(--muted)' }}>Trafic ingineresc intens (Ateliere TCM). E un "cursă lungă" perfectă pentru a ocoli ambuteiajele.</td>
-              <td style={{ padding: '16px', color: 'var(--muted)' }}>Firme de Inginerie Auto (Bosch, Porsche)</td>
+              <td style={{ padding: '16px' }}><b>Complex Cămin Mărăști 1F & Natație</b></td>
+              <td style={{ padding: '16px', color: 'var(--muted)' }}>Zonă sportivă și de rezidență nordică. Brand funcțional și trafic studențesc constant.</td>
+              <td style={{ padding: '16px', color: 'var(--muted)' }}>Sponsori axați pe Health & Sport, Bănci</td>
             </tr>
             <tr>
-              <td style={{ padding: '16px' }}><b>Facultatea Construcții / Arhitectură</b></td>
-              <td style={{ padding: '16px', color: 'var(--muted)' }}>(Observator 72). Punct median ideal, extindere viitoare.</td>
-              <td style={{ padding: '16px', color: 'var(--muted)' }}>Firme Real Estate (Iulius)</td>
+              <td style={{ padding: '16px' }}><b>Campus B-dul Muncii</b></td>
+              <td style={{ padding: '16px', color: 'var(--muted)' }}>Trafic ingineresc intens (Ateliere TCM). E o "cursă lungă" perfectă pentru a ocoli ambuteiajele.</td>
+              <td style={{ padding: '16px', color: 'var(--muted)' }}>Firme de Inginerie Auto (Bosch, Porsche)</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div className="card" style={{ marginBottom: '64px', padding: 0, overflow: 'hidden', height: '600px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-        <MapContainer center={[46.764, 23.585]} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%', zIndex: 0 }}>
+        <MapContainer center={[46.772, 23.600]} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%', zIndex: 0 }}>
           <TileLayer
             attribution='&copy; <a href="https://carto.com/">Carto</a>'
             url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
             maxZoom={19}
           />
           {stations.map(s => {
-            const isNew = s.id >= 16 && s.id <= 19;
-            const color = isNew ? '#F4A827' : '#0FC2C0';
-            const opac = isNew ? 0.85 : 0.8;
-            const fillOpac = isNew ? 0.6 : 0.25;
+            const color = '#0FC2C0'; // Movio Teal
+            const opac = 0.85;
+            const fillOpac = 0.5;
             return (
               <Circle
                 key={s.id}
                 center={[s.lat, s.lng]}
-                radius={350}
+                radius={250}
                 pathOptions={{
                   color: color,
                   fillColor: color,
@@ -148,8 +135,8 @@ export default function PlaybookView() {
               >
                 <Tooltip>
                   <strong>{s.name}</strong><br/>
-                  Capacitate: {s.capacity} biciclete
-                  {isNew && <><br/><i style={{color: '#F4A827'}}>★ NOU: {s.nota}</i></>}
+                  Capacitate: {s.capacity} biciclete<br/>
+                  <i style={{color: '#F4A827'}}>{s.nota}</i>
                 </Tooltip>
               </Circle>
             );
@@ -166,7 +153,7 @@ export default function PlaybookView() {
         </div>
         <div className="tip-box" style={{ margin: 0 }}>
           <strong style={{ display: 'block', marginBottom: '8px' }}>Fără E-mail-uri "Targetate Orb"</strong>
-          Sute de ONG-uri dau mail la `office@companie.ro` și mor în Spam-ul secretavei. Căutăm Directorul CSR / Employer Branding Lead exact pe orașul Cluj, exclusiv prin LinkedIn.
+          Sute de ONG-uri dau mail la office@companie.ro și mor în Spam-ul secretavei. Căutăm Directorul CSR / Employer Branding Lead exact pe orașul Cluj, exclusiv prin LinkedIn.
         </div>
       </div>
 
