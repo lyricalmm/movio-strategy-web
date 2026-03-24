@@ -25,7 +25,7 @@ export default function OverviewView() {
 
             const nonAdoptie = total - adoptie;
             
-            const cbUsers = data.filter(r => r["Știau că există Cluj Bike — sistemul public de biciclete din Cluj?"]?.includes("dar nu l-am folosit niciodată"));
+            const cbUsers = data.filter(r => r["Știai că există Cluj Bike — sistemul public de biciclete din Cluj?"]?.includes("dar nu l-am folosit niciodată"));
             
             let scoreSum = 0;
             let nScores = 0;
