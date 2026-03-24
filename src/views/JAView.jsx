@@ -83,21 +83,22 @@ export default function JAView() {
 
         <div>
            <h3 style={{ fontSize: '20px', marginBottom: '16px' }}>Workflow Săptămânal</h3>
-           <div className="task-card">
-              <span className="badge active" style={{ float: 'right' }}>Săpt 1-2</span>
-              <h4 style={{ marginBottom: '8px' }}>Setup BizzFactory</h4>
+           <div className="task-card" style={{ marginBottom: '16px' }}>
+              <span className="badge active" style={{ float: 'right' }}>Azi - 31 Mar</span>
+              <h4 style={{ marginBottom: '8px' }}>Sprint Final DreamShaper (100%)</h4>
               <ul style={{ paddingLeft: '20px', fontSize: '13px', color: 'var(--muted)' }}>
-                <li>Cont comun pe DreamShaper.</li>
-                <li>Actualizare PPT oficial master.</li>
-                <li>Trecere prin secțiunile 1-4.</li>
+                <li>Finalizare secțiuni 1-7 pe DreamShaper (Condiție Semifinală).</li>
+                <li>Creare <b>JA Business Team Account</b> (Gen-E Expo) cu adresă email comună.</li>
+                <li>Participare webinarii curente pe <a href="https://jar.ro/webinar-incubator-2026" target="_blank" rel="noreferrer" style={{ color: 'var(--teal)' }}>jar.ro/webinar-incubator-2026</a>.</li>
               </ul>
            </div>
            <div className="task-card">
-              <span className="badge waiting" style={{ float: 'right' }}>Săpt 3-4</span>
-              <h4 style={{ marginBottom: '8px' }}>Verificare Juriu</h4>
+              <span className="badge waiting" style={{ float: 'right' }}>1-17 Aprilie</span>
+              <h4 style={{ marginBottom: '8px' }}>Webinarii & Pitch (Semifinale)</h4>
               <ul style={{ paddingLeft: '20px', fontSize: '13px', color: 'var(--muted)' }}>
-                <li>Repetare Pitch (Q&A de mai sus) cu restul echipei TARE.</li>
-                <li>Integrare date noi din sondajele de la Rol 04 (Comms).</li>
+                <li>Participare Webinarii: Mgmt Riscului (31 Mar), Prezentare Plan (1 Apr), Fiscalitate (2 Apr).</li>
+                <li>Repetare Pitch (Q&A BizzFactory) pregătire pentru Semifinale.</li>
+                <li>Participare la Ultimul Office Hours (17 Aprilie) pentru lămuriri finale.</li>
               </ul>
            </div>
         </div>

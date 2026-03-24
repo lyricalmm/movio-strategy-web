@@ -67,8 +67,10 @@ export default function OverviewView() {
   }, []);
 
   const milestones = [
-    { data: "17 Aprilie 2026", task: "DEADLINE: Predare Plan Afaceri DreamShaper & 100+ Validări", done: false, urgent: true },
-    { data: "Aprilie 2026", task: "Calificare Regională/Universitară (De verificat)", done: false },
+    { data: "31 Martie 2026", task: "DEADLINE CRITIC: Progres 100% DreamShaper (Calificare Semifinale)", done: false, urgent: true },
+    { data: "1-3 Aprilie 2026", task: "Webinarii finale: Prezentare Plan, Fiscalitate, Gen-E Virtual Expo", done: false },
+    { data: "Aprilie 2026", task: "Semifinale JA BizzFactory (Sub rezerva completării DreamShaper)", done: false, urgent: true },
+    { data: "17 Aprilie 2026", task: "Ultimul 'Office Hours' (Feedback final mentori)", done: false },
     { data: "21 Mai 2026", task: "Virtual Expo Internațional GEN-E Europe (Online)", done: false },
     { data: "27 Mai 2026", task: "Finala Națională BizzFactory (București + Stand Fizic)", done: false, urgent: true },
     { data: "Iulie 2026", task: "Finala Europeană GEN-E (Riga, Letonia)", done: false }
